@@ -23,10 +23,29 @@ namespace WebAdvert.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCognitoIdentity();
+            //services.AddAuthentication();
             services.ConfigureApplicationCookie(options =>
             {
+                
+                options.ExpireTimeSpan = TimeSpan.FromHours(1);
+                options.SlidingExpiration = true;
                 options.LoginPath = "/Accounts/Login";
+
+
+               // options.Cookie.IsEssential = false;
             });
+
+            //services.AddAuthentication("CookieAuthentication")
+            //   .AddCookie("CookieAuthentication", config =>
+            //   {
+            //       config.Cookie.Name = "UserLoginCookie";
+            //       config.LoginPath = "/Accounts/Login";
+            //   });
+
+            //services.cook(options =>
+            //{
+            //    options.Cookie.IsEssential = true;
+            //});
             services.AddControllersWithViews();
         }
 
@@ -44,16 +63,24 @@ namespace WebAdvert.Web
             app.UseStaticFiles();
 
             app.UseRouting();
+          //  app.UseCookiePolicy();
 
             app.UseAuthorization();
             app.UseAuthentication();
-
+            //  app.UseMvc();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
         }
     }
 }

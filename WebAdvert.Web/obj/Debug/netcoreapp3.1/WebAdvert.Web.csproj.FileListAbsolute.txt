@@ -122,5 +122,5 @@ C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\bin\Debug\netcoreapp3.1\zh-Hant\Micr
 C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\WebAdvert.Web.csproj.CoreCompileInputs.cache
 C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\WebAdvert.Web.MvcApplicationPartsAssemblyInfo.cache
 C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Confirm.cshtml.g.cs
-C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Signup.cshtml.g.cs
 C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Login.cshtml.g.cs
+C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Signup.cshtml.g.cs
