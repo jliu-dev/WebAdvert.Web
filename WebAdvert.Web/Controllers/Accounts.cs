@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Amazon.AspNetCore.Identity.Cognito;
+using Amazon.CognitoIdentity.Model;
 using Amazon.Extensions.CognitoAuthentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -99,6 +100,96 @@ namespace WebAdvert.Web.Controllers
             return View(model);
             //return null;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ForgetPassword(ForgotpasswordModel model)
+        {
+            //var model = new ConfirmModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("ForgetPassword")]
+        public async Task<IActionResult> ForgetPassword_Post(ForgotpasswordModel model)
+        {
+            ResetpasswordModel rModel = new ResetpasswordModel();
+            
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+
+                if (user == null)
+                {
+                    ModelState.AddModelError("NotFound", "User with this email was not found");
+                    return View(model);
+                }
+
+                try {
+                    await user.ForgotPasswordAsync();
+                }
+                catch(Exception ex)
+                {
+                    ModelState.AddModelError("LoginError", ex.Message);
+                }
+
+                // var result =await _userManager.ConfirmEmailAsync(user, model.Code);//the third parameter is solve the nullReference issue
+
+                rModel.Email = model.Email;
+              
+            }
+
+            return View("ResetPassword", rModel);
+            //return null;
+        }
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> ResetPassword(ResetpasswordModel model)
+        {
+            //var model = new ConfirmModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("ResetPassword")]
+        public async Task<IActionResult> ResetPassword_Post(ResetpasswordModel model)
+        {
+            ResetpasswordModel rModel = new ResetpasswordModel();
+
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+
+                if (user == null)
+                {
+                    ModelState.AddModelError("NotFound", "User with this email was not found");
+                    return View(model);
+                }
+
+                try
+                {
+                    await user.ConfirmForgotPasswordAsync(model.Code, model.Password);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("LoginError", ex.Message);
+                }
+
+                // var result =await _userManager.ConfirmEmailAsync(user, model.Code);//the third parameter is solve the nullReference issue
+
+                rModel.Email = model.Email;
+
+            }
+
+            return RedirectToAction("Index", "Home");
+            //return null;
+        }
+
+
+
+
 
         [HttpGet]
         public async Task<IActionResult> Login(LoginModel model)

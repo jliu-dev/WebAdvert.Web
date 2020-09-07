@@ -124,3 +124,5 @@ C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\WebAdvert.We
 C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Confirm.cshtml.g.cs
 C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Login.cshtml.g.cs
 C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\Signup.cshtml.g.cs
+C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\ForgetPassword.cshtml.g.cs
+C:\GitHubSource\WebAdvert.Web\WebAdvert.Web\obj\Debug\netcoreapp3.1\Razor\Views\Accounts\ResetPassword.cshtml.g.cs

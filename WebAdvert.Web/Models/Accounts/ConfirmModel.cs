@@ -15,4 +15,28 @@ namespace WebAdvert.Web.Models.Accounts
         [Required(ErrorMessage = "Code is required")]
         public string Code { get; set; }
     }
+
+
+    public class ForgotpasswordModel
+    {
+        [Required(ErrorMessage = "Email is required")]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        //[Required(ErrorMessage = "Code is required")]
+        public string Code { get; set; }
+    }
+
+    public class ResetpasswordModel
+    {
+        [Required(ErrorMessage = "Email is required")]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Code is required")]
+        public string Code { get; set; }
+
+        public string Password { get; set; }
+    }
+
 }
